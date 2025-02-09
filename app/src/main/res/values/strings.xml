@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">RoadSync</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="customer_text">Get access to your orders, wishlists and recommendations</string>
+    <string name="email_mobile_no">Email / Username <font color="#590d22">*</font></string>
+    <string name="enter_password">Enter password</string>
+    <string name="email_hint">Enter email address</string>
+    <string name="password">Password <font color="#590d22">*</font></string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="no_account">Don’t have an account? <font color="#3498DB">Create one now</font></string>
+    <string name="already_account">Already Have an account? <font color="#3498DB">Login now</font></string>
+    <string name="change_category">Want to change category? <font color="#3498DB"> Go Back</font></string>
+    <string name="terms">By continuing you agree to Road Sync’s<font color="#3498DB"> Terms of Use</font> and <font color="#3498DB">Privacy Policy</font> </string>
+    <string name="already_registered_log_in_here">Already Registered? <font color="#ff5757">Log in here</font></string>
+    <string name="sign_in_to_continue."><font color="#ff5757">Sign in to continue.</font></string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="signup">Sign up</string>
+    <string name="signup_">Signup!</string>
+    <string name="send">Send Email</string>
+    <string name="enter_email">Enter Your Email Address</string>
+    <string name="cancel">Cancel</string>
+
+</resources>
