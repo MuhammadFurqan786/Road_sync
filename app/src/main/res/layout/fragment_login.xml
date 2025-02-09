@@ -11,7 +11,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageTrip"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="280dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_road_trip" />
 
