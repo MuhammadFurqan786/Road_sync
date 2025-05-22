@@ -5,4 +5,10 @@
         <item name="colorPrimary">@color/primary_maroon</item>
         <item name="colorPrimaryDark">@color/black</item>
     </style>
+
+    <style name="circleImageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

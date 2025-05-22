@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.roadsync.auth.LoginFragment"
+        android:name="com.roadsync.auth.presentation.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.roadsync.auth.RegisterFragment"
+        android:name="com.roadsync.auth.presentation.RegisterFragment"
         android:label="RegisterFragment" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
@@ -26,6 +26,8 @@
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.roadsync.auth.ForgotPasswordFragment"
+        android:name="com.roadsync.auth.presentation.ForgotPasswordFragment"
         android:label="ForgotPasswordFragment" />
+
+
 </navigation>

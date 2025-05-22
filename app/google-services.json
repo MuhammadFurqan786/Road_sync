@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "857025282001",
+    "project_id": "roadsync-4e8c3",
+    "storage_bucket": "roadsync-4e8c3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857025282001:android:32e624bb42409e4cb0aaf0",
+        "android_client_info": {
+          "package_name": "com.roadsync"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8yr2r6iCfbTRkTowPp_bLzkQ-PzJHEUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

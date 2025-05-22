@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_navigation.xml"
+    app:startDestination="@id/nav_users">
+
+    <fragment
+        android:id="@+id/nav_users"
+        android:name="com.roadsync.admin.presentation.UsersFragment"
+        android:label="Users"
+        tools:layout="@layout/fragment_users" />
+    <fragment
+        android:id="@+id/nav_trips"
+        android:name="com.roadsync.admin.presentation.AllTripFragment"
+        android:label="Trips"
+        tools:layout="@layout/fragment_all_trip" >
+        <action
+            android:id="@+id/action_nav_trips_to_tripDetailFragment"
+            app:destination="@id/tripDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tripDetailFragment"
+        android:name="com.roadsync.admin.presentation.TripDetailFragment"
+        android:label="TripDetailFragment" />
+
+
+</navigation>

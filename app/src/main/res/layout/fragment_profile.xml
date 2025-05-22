@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_2">
+
+    <RelativeLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/primary_blue"
+        android:elevation="2dp">
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_semibold"
+            android:padding="8dp"
+            android:text="@string/profile"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_16">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/sku"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="First Name"
+                    android:textColor="@color/text_darker" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edFirstName"
+                    style="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@drawable/bg_gray_card"
+                    android:drawableEnd="@drawable/ic_can_edit"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingStart="@dimen/dp_16"
+                    android:paddingEnd="@dimen/dp_8"
+                    android:textColor="@color/text_darker" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Last Name"
+                    android:textColor="@color/text_darker" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edLastName"
+                    style="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@drawable/bg_gray_card"
+                    android:drawableEnd="@drawable/ic_can_edit"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingStart="@dimen/dp_16"
+                    android:paddingEnd="@dimen/dp_8"
+                    android:textColor="@color/text_darker" />
+            </LinearLayout>
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Phone Number"
+                android:textColor="@color/text_darker" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edPhone"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/bg_gray_card"
+                android:fontFamily="@font/poppins_regular"
+                android:drawableEnd="@drawable/ic_can_edit"
+                android:inputType="phone|number"
+                android:layout_marginTop="@dimen/dp_8"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/text_dark" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_regular"
+
+                android:text="Emergency Contact Number"
+                android:textColor="@color/text_darker" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edEmergencyContact"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/bg_gray_card"
+                android:fontFamily="@font/poppins_regular"
+                android:drawableEnd="@drawable/ic_can_edit"
+                android:inputType="phone|number"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/text_dark" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Email"
+                    android:textColor="@color/text_darker" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edEmail"
+                    style="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@drawable/bg_gray_card"
+                    android:enabled="false"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingStart="@dimen/dp_16"
+                    android:paddingEnd="@dimen/dp_8"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Account Status"
+                    android:textColor="@color/text_darker" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edStatus"
+                    style="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@drawable/bg_gray_card"
+                    android:enabled="false"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingStart="@dimen/dp_16"
+                    android:paddingEnd="@dimen/dp_8" />
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/updateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_button"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Update"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/cancel_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_16"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Cancel"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/loadingView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/primary_blue"
+        android:visibility="gone" />
+</RelativeLayout>

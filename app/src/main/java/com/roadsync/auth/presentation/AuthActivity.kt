@@ -1,4 +1,4 @@
-package com.roadsync.auth
+package com.roadsync.auth.presentation
 
 import android.content.Context
 import android.os.Bundle

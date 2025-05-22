@@ -24,5 +24,24 @@
     <string name="send">Send Email</string>
     <string name="enter_email">Enter Your Email Address</string>
     <string name="cancel">Cancel</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="trips">Trips</string>
+    <string name="notifications">Notifications</string>
+    <string name="account">Account</string>
+    <string name="create_trip">Create Trip</string>
+    <string name="trip_name">Trip Name</string>
+    <string name="route">Route</string>
+    <string name="departure">Departure</string>
+    <string name="destination">Destination</string>
+    <string name="trip_details">Trip Details</string>
+    <string name="invite">Invite People</string>
+    <string name="join_trip">Join Trip</string>
+    <string name="remove">Remove</string>
+    <string name="start_trip">Start Trip</string>
+    <string name="no_trip_found">No Trip Found</string>
+    <string name="live_location">Live Location</string>
+    <string name="setting">Setting</string>
+    <string name="profile">Profile</string>
+    <string name="endTrip">End Trip</string>
 
 </resources>

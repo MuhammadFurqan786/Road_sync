@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A590D22"
+    tools:context=".home.presentation.trip.TripDetailsFragment">
+
+
+    <RelativeLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/primary_blue"
+        android:elevation="2dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_16"
+            android:src="@drawable/line_md_arrow_left" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_semibold"
+            android:padding="8dp"
+            android:text="@string/trip_details"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topbar"
+        android:layout_marginBottom="@dimen/dp_24">
+
+        <LinearLayout
+            android:id="@+id/shareTripLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_24"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/trip_details"
+                android:textAlignment="center"
+                android:textColor="@color/text_darker" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tripName"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/trip_name"
+                android:textAlignment="center"
+                android:textColor="@color/text_darker" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/route"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Departure  - Destination"
+                android:textAlignment="center"
+                android:textColor="@color/text_darker" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/stayOption"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Departure  - Destination"
+                android:textAlignment="center"
+                android:textColor="@color/text_darker" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/totalCost"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Departure  - Destination"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_darker" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/addCost"
+                    android:layout_width="24dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center_vertical"
+                    android:padding="4dp"
+                    android:src="@android:drawable/ic_menu_edit" />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Trip Members"
+                android:textAlignment="center"
+                android:textColor="@color/text_darker" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/noMember"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="No Memeber Found"
+                android:textAlignment="center"
+                android:textColor="@color/text_darker" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvUsers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Invited Users"
+                android:textAlignment="center"
+                android:textColor="@color/text_darker" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvInvitedUsers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/noInvite"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="No Person Invited"
+                android:textAlignment="center"
+                android:textColor="@color/text_darker" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/invite"
+                android:textAlignment="center"
+                android:textColor="@color/text_darker" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Copy invite code or click on invite button to invite other people."
+                android:textColor="@color/text_darker" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                android:layout_marginVertical="@dimen/dp_8"
+                android:background="@drawable/bg_editext_white">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/inviteCode"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/dp_8"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/dp_8"
+                    android:text="123456"
+                    android:textColor="@color/text_dark" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/copyButton"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="@dimen/dp_8"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_copy"
+                    app:tint="@color/primary_blue" />
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/imagesText"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Trip Images"
+                android:textAlignment="center"
+                android:textColor="@color/text_darker"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/item_image" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/inviteButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/bg_button"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/invite"
+                android:textColor="@color/white" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/startTrip"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/bg_button"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/start_trip"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/endTrip"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/bg_button"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/endTrip"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/error"
+        style="@style/TextAppearance.AppCompat.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Something Went Wrong !!"
+        android:textAlignment="center"
+        android:textColor="@color/text_darker"
+        android:visibility="gone" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/loadingView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/uploadImage"
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/topbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="16dp"
+        android:background="@drawable/bg_button"
+        android:fontFamily="@font/poppins_semibold"
+        android:paddingHorizontal="@dimen/dp_8"
+        android:text="upload image"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
