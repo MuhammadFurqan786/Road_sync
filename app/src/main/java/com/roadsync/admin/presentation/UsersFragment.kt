@@ -50,7 +50,6 @@ class UsersFragment : Fragment() {
                 binding.progressBar.visibility = View.GONE
                 binding.rvUsers.visibility = View.GONE
                 binding.noData.visibility = View.VISIBLE
-
             } else {
                 binding.progressBar.visibility = View.GONE
                 binding.rvUsers.visibility = View.VISIBLE
