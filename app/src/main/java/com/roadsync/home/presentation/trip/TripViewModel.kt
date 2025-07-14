@@ -77,6 +77,10 @@ class TripViewModel(application: Application) : AndroidViewModel(application) {
     // Reference to the GoogleMap instance
     var googleMap: GoogleMap? = null
 
+    fun clearTripStatus() {
+        _tripStatus.value = ""
+    }
+
 
     // =============== CREATE TRIP ==================
     fun createTrip(
@@ -161,7 +165,6 @@ class TripViewModel(application: Application) : AndroidViewModel(application) {
                         _tripStatus.postValue("Invalid invite code.")
                     }
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     _tripStatus.postValue("Error: ${error.message}")
                 }

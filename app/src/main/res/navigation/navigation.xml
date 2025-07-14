@@ -33,7 +33,11 @@
         android:id="@+id/notifications"
         android:name="com.roadsync.home.presentation.notification.NotificationFragment"
         android:label="@string/notifications"
-        tools:layout="@layout/fragment_notification" />
+        tools:layout="@layout/fragment_notification" >
+        <action
+            android:id="@+id/action_notifications_to_tripDetailsFragment"
+            app:destination="@id/tripDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/account"
         android:name="com.roadsync.home.presentation.SettingFragment"

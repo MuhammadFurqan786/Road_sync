@@ -26,6 +26,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     private val authRepository = AuthRepository()
     private val fusedLocationClient: FusedLocationProviderClient =
         LocationServices.getFusedLocationProviderClient(application)
+
     private val _authResult = MutableLiveData<Result<Boolean>>()
     val authResult: LiveData<Result<Boolean>> get() = _authResult
 
@@ -115,6 +116,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             onFailure = { error -> _authResult.value = Result.failure(Exception(error)) }
         )
     }
+
 
     fun getUserData(userId: String) {
         val dbRef = FirebaseDatabase.getInstance().getReference("users").child(userId)

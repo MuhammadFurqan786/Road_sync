@@ -11,6 +11,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.roadsync.R
@@ -30,6 +31,7 @@ class NotificationFragment : Fragment() {
     private lateinit var notificationsAdapter: NotificationAdapter
     private lateinit var userId: String
     private lateinit var helper: PreferenceHelper
+    private lateinit var tripInviteCode: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -55,7 +57,9 @@ class NotificationFragment : Fragment() {
             , notification.body, Toast.LENGTH_SHORT).show()
             val user = helper.getCurrentUser()
             if (user != null) {
-                notification.inviteCode?.let { showJoinTripDialog(it, user) }
+                notification.inviteCode?.let {
+                    showJoinTripDialog(it, user)
+                }
             }
         }
         binding.notificationRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -70,11 +74,21 @@ class NotificationFragment : Fragment() {
             notificationsAdapter.submitList(notifications)
         })
 
+        tripViewModel.tripStatus.observe(viewLifecycleOwner) { status ->
+            Toast.makeText(requireContext(), status, Toast.LENGTH_SHORT).show()
+            if (status.contains("joined", ignoreCase = true)) {
+                // ✅ Navigate to Trip screen
+                navigateToTripScreen()
+                tripViewModel.clearTripStatus()
+            }
+        }
 
     }
 
+
     @SuppressLint("MissingInflatedId")
     private fun showJoinTripDialog(inviteCode: String, user: User) {
+        tripInviteCode = inviteCode
         val dialogView =
             LayoutInflater.from(requireContext()).inflate(R.layout.dialog_join_trip, null)
         val inputField = dialogView.findViewById<AppCompatEditText>(R.id.inviteCodeInput)
@@ -101,19 +115,13 @@ class NotificationFragment : Fragment() {
     }
 
     private fun checkAndJoinTrip(inviteCode: String, user: User, pickupLocation: String) {
-        // Trigger check (realtime fetch)
+        tripViewModel.joinTripByInvite(inviteCode, user, pickupLocation)
+    }
 
-        tripViewModel.getTripByInviteCode(inviteCode)
-
-        tripViewModel.tripData.observe(viewLifecycleOwner) { snapshot ->
-            val userAlreadyJoined = snapshot?.child("users")?.hasChild(user.userId) == true
-            if (userAlreadyJoined) {
-                Toast.makeText(requireContext(), "You already joined this trip", Toast.LENGTH_SHORT)
-                    .show()
-            } else {
-                tripViewModel.joinTripByInvite(inviteCode, user, pickupLocation)
-            }
-        }
+    private fun navigateToTripScreen() {
+        val bundle = Bundle()
+        bundle.putString("inviteCode", tripInviteCode)
+        findNavController().navigate(R.id.action_notifications_to_tripDetailsFragment, bundle)
     }
 
 

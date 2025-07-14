@@ -16,6 +16,7 @@
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.roadsync.auth.presentation.RegisterFragment"
@@ -24,6 +25,7 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/forgotPasswordFragment"
         android:name="com.roadsync.auth.presentation.ForgotPasswordFragment"

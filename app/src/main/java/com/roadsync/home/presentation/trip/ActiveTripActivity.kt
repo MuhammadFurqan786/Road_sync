@@ -70,7 +70,7 @@ class ActiveTripActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var currentUserName: String
     private lateinit var helper: PreferenceHelper
     private var lastDeviationTime: Long = 0
-    private val deviationCooldownMillis = 60 * 5000 // 1 minute
+    private val deviationCooldownMillis = 60 * 3000
     private val apiKey = "AIzaSyAlT_fm5x5NLOan7OWKGMG_taLHhaQ01ko"
 
 
@@ -165,8 +165,7 @@ class ActiveTripActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun checkDeviation(currentLatLng: LatLng) {
         val distance = distanceFromLine(startLatLng!!, endLatLng!!, currentLatLng)
-
-        if (distance > 10) {
+        if (distance > 50) {
             val currentTime = System.currentTimeMillis()
             if (currentTime - lastDeviationTime > deviationCooldownMillis) {
                 lastDeviationTime = currentTime

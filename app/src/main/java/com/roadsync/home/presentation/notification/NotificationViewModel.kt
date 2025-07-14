@@ -17,12 +17,12 @@ class NotificationViewModel : ViewModel() {
         // Clear existing notifications when starting the listener to avoid duplication
         notificationList.clear()
 
-        // Fetch existing notifications from the database
         NotificationRepository.getAllNotifications(userId) { existingNotifications ->
-            Log.d("NotificationViewModel", "Fetched ${existingNotifications.size} notifications")
-            notificationList.addAll(existingNotifications) // Add all fetched notifications
-            _notifications.value = notificationList.toList() // Update LiveData
+            val sorted = existingNotifications.sortedByDescending { it.timestamp }
+            notificationList.addAll(sorted)
+            _notifications.value = notificationList.toList()
         }
+
 
         // Listen for new notifications in real-time
         NotificationRepository.listenForNotifications(userId) { notification ->

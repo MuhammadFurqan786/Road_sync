@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.roadsync.R
 import com.roadsync.home.models.NotificationDataModel
+import com.roadsync.pref.PreferenceHelper
 
 
 class NotificationService : Service() {
@@ -59,10 +60,13 @@ class NotificationService : Service() {
             notificationListener = object : ChildEventListener {
                 override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                     snapshot.getValue(NotificationDataModel::class.java)?.let { notificationModel ->
-                        showNotification(notificationModel)
+                        val lastSeen = getLastSeenTimestamp()
+                        if (notificationModel.timestamp > lastSeen) {
+                            showNotification(notificationModel)
+                            saveLastSeenTimestamp(notificationModel.timestamp)
+                        }
                     }
                 }
-
                 override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {}
                 override fun onChildRemoved(snapshot: DataSnapshot) {}
                 override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {}
@@ -98,5 +102,16 @@ class NotificationService : Service() {
     private fun getCurrentUserId(): String? {
         return FirebaseAuth.getInstance().currentUser?.uid
     }
+    private fun getLastSeenTimestamp(): Long {
+        val helper = PreferenceHelper.getPref(this)
+        return helper.getLongValue("last_seen_timestamp", 0L)
+    }
+
+    private fun saveLastSeenTimestamp(timestamp: Long) {
+        val helper = PreferenceHelper.getPref(this)
+        helper.saveLongValue("last_seen_timestamp", timestamp)
+    }
+
+
 }
 

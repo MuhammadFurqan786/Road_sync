@@ -52,8 +52,6 @@ class ForgotPasswordFragment : Fragment() {
                     Handler(Looper.getMainLooper()).postDelayed({
                         findNavController().navigateUp()
                     }, 1500)
-
-
                 },
                 onFailure = { exception ->
                     // Handle error

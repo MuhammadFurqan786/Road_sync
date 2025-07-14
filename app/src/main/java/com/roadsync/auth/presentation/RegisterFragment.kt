@@ -29,9 +29,9 @@ class RegisterFragment : Fragment() {
     private val viewModel: AuthViewModel by viewModels()
     private lateinit var helper: PreferenceHelper
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -53,52 +53,7 @@ class RegisterFragment : Fragment() {
         return binding.root
     }
 
-    private fun initObserver() {
-        viewModel.authResult.observe(viewLifecycleOwner) { result ->
-            result.fold(
-                onSuccess = {
-                    val userId = FirebaseAuth.getInstance().currentUser?.uid
-                    if (userId != null) {
-                        viewModel.fetchUserData(userId)
-                    }
-                }, onFailure = {
-                    binding.loadingView.visibility = View.GONE
-                    it.message?.let { it1 ->
-                        GlobalUtils.showMessage(
-                            binding.root,
-                            it1,
-                            Snackbar.LENGTH_SHORT
-                        )
-                    }
-                }
-            )
-        }
-        viewModel.userData.observe(viewLifecycleOwner) { result ->
-            result.fold(
-                onSuccess = { user ->
-                    // Update UI with user data
-                    helper.saveCurrentUser(user)
-                    helper.setUserLogin(true)
-                    binding.loadingView.visibility = View.GONE
-                    GlobalUtils.showMessage(binding.root, "Login Successful", Snackbar.LENGTH_SHORT)
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        startActivity(Intent(requireContext(), MainActivity::class.java))
-                        activity?.finish()
-                    }, 1500)
 
-                },
-                onFailure = { exception ->
-                    binding.loadingView.visibility = View.GONE
-                    Toast.makeText(
-                        requireContext(),
-                        "Error: ${exception.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            )
-        }
-
-    }
 
     private fun setupClicks() {
         binding.apply {
@@ -159,5 +114,50 @@ class RegisterFragment : Fragment() {
 
     }
 
+    private fun initObserver() {
+        viewModel.authResult.observe(viewLifecycleOwner) { result ->
+            result.fold(
+                onSuccess = {
+                    val userId = FirebaseAuth.getInstance().currentUser?.uid
+                    if (userId != null) {
+                        viewModel.fetchUserData(userId)
+                    }
+                }, onFailure = {
+                    binding.loadingView.visibility = View.GONE
+                    it.message?.let { it1 ->
+                        GlobalUtils.showMessage(
+                            binding.root,
+                            it1,
+                            Snackbar.LENGTH_SHORT
+                        )
+                    }
+                }
+            )
+        }
+        viewModel.userData.observe(viewLifecycleOwner) { result ->
+            result.fold(
+                onSuccess = { user ->
+                    // Update UI with user data
+                    helper.saveCurrentUser(user)
+                    helper.setUserLogin(true)
+                    binding.loadingView.visibility = View.GONE
+                    GlobalUtils.showMessage(binding.root, "Login Successful", Snackbar.LENGTH_SHORT)
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        startActivity(Intent(requireContext(), MainActivity::class.java))
+                        activity?.finish()
+                    }, 1500)
 
+                },
+                onFailure = { exception ->
+                    binding.loadingView.visibility = View.GONE
+                    Toast.makeText(
+                        requireContext(),
+                        "Error: ${exception.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            )
+        }
+
+    }
 }

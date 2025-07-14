@@ -245,6 +245,11 @@ class SettingFragment : Fragment() {
         binding.editButton.setOnClickListener {
             changeProfilePicture()
         }
+
+        binding.userImage.setOnClickListener {
+            changeProfilePicture()
+        }
+
         loadUserProfileImage()
     }
 
@@ -451,6 +456,5 @@ class SettingFragment : Fragment() {
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
     }
-
 
 }
